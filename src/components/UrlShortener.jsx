@@ -6,22 +6,21 @@
  * Features:
  * - Form validation (must have URL)
  * - API integration with Bitly for URL shortening
- * - Local storage persistence (links persist after page refresh)
  * - Loading state management
  * - Error handling and user feedback
+ * - Links appear only during current session (cleared on page refresh)
  * 
  * State Management:
  * - url: Current input URL value
- * - links: Array of shortened links from local storage
+ * - links: Array of shortened links (session only, not persisted)
  * - error: Boolean to show/hide error message
  * - loading: Boolean to show loading state during API call
  * 
- * Local Storage:
- * - Key: 'shortenedLinks'
- * - Format: JSON array of {originalUrl, shortUrl} objects
+ * Note: Links are NOT persisted to localStorage
+ * They will be cleared when the page is refreshed
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LinkItem from './LinkItem';
 
 const UrlShortener = () => {
@@ -29,17 +28,6 @@ const UrlShortener = () => {
   const [links, setLinks] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  /**
-   * Load previously shortened links from local storage on component mount
-   * This ensures users see their history even after page refresh
-   */
-  useEffect(() => {
-    const savedLinks = JSON.parse(localStorage.getItem('shortenedLinks'));
-    if (savedLinks) {
-      setLinks(savedLinks);
-    }
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,8 +64,7 @@ const UrlShortener = () => {
         const updatedLinks = [newLink, ...links];
         setLinks(updatedLinks);
         
-        // LOCAL STORAGE: Persist links for next page visit
-        localStorage.setItem('shortenedLinks', JSON.stringify(updatedLinks));
+        // Clear input field after successful shortening
         setUrl('');
       } else {
         // ERROR HANDLING: If API fails, use mock shortened URL for demonstration
@@ -88,7 +75,6 @@ const UrlShortener = () => {
         };
         const updatedLinks = [newLink, ...links];
         setLinks(updatedLinks);
-        localStorage.setItem('shortenedLinks', JSON.stringify(updatedLinks));
         setUrl('');
       }
     } catch (err) {

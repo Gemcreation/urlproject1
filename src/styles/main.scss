@@ -539,7 +539,7 @@ img {
 .statistics__cards {
   display: flex;
   flex-direction: column;
-  gap: 90px;
+  gap: 0;
   position: relative;
   
   @media (min-width: 768px) {
@@ -571,23 +571,34 @@ img {
 .statistic-card {
   background-color: white;
   border-radius: 8px;
-  padding: 0 32px 40px;
+  padding: 50px 32px 40px;
   position: relative;
   z-index: 2;
+  margin-top: 0;
   
   @media (min-width: 768px) {
     flex: 1;
+    padding: 0 32px 40px;
+    margin-top: 0;
   }
 
   &.card-2 {
+    margin-top: 40px;
+    padding-bottom: 50px;
+    
     @media (min-width: 768px) {
       margin-top: 40px;
+      padding-bottom: 40px;
     }
   }
 
   &.card-3 {
+    margin-top: 80px;
+    padding-bottom: 60px;
+    
     @media (min-width: 768px) {
       margin-top: 80px;
+      padding-bottom: 40px;
     }
   }
 }
@@ -600,14 +611,15 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 30px;
-  transform: translateY(-50%);
-  margin-bottom: -15px;
+  margin: -50px auto 30px;
+  position: relative;
+  z-index: 3;
   
   @media (min-width: 768px) {
     margin: 0 0 30px;
     transform: translateY(-50%);
     margin-bottom: -15px;
+    z-index: 3;
   }
 
   img {
