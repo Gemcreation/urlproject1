@@ -1,3 +1,26 @@
+/**
+ * UrlShortener Component
+ * 
+ * Main URL shortening form and link list display.
+ * 
+ * Features:
+ * - Form validation (must have URL)
+ * - API integration with Bitly for URL shortening
+ * - Local storage persistence (links persist after page refresh)
+ * - Loading state management
+ * - Error handling and user feedback
+ * 
+ * State Management:
+ * - url: Current input URL value
+ * - links: Array of shortened links from local storage
+ * - error: Boolean to show/hide error message
+ * - loading: Boolean to show loading state during API call
+ * 
+ * Local Storage:
+ * - Key: 'shortenedLinks'
+ * - Format: JSON array of {originalUrl, shortUrl} objects
+ */
+
 import React, { useState, useEffect } from 'react';
 import LinkItem from './LinkItem';
 
@@ -7,7 +30,10 @@ const UrlShortener = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Load from local storage on mount
+  /**
+   * Load previously shortened links from local storage on component mount
+   * This ensures users see their history even after page refresh
+   */
   useEffect(() => {
     const savedLinks = JSON.parse(localStorage.getItem('shortenedLinks'));
     if (savedLinks) {
@@ -17,6 +43,8 @@ const UrlShortener = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // VALIDATION: Check if input is empty
     if (!url) {
       setError(true);
       return;
@@ -25,12 +53,14 @@ const UrlShortener = () => {
     setLoading(true);
 
     try {
-      // User instructions specified bitly.com API endpoint and to use apikey if needed.
+      // API INTEGRATION: Call Bitly API to shorten URL
+      // Using Bitly v4 API endpoint: https://api-ssl.bitly.com/v4/shorten
+      // Replace 'apikey' with actual Bitly API token for production
       const response = await fetch('https://api-ssl.bitly.com/v4/shorten', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer apikey'
+          'Authorization': 'Bearer apikey' // Replace with actual API key
         },
         body: JSON.stringify({ long_url: url, domain: 'bit.ly' })
       });
@@ -38,17 +68,19 @@ const UrlShortener = () => {
       const data = await response.json();
       
       if (response.ok) {
+        // SUCCESS: Create new link object with original and shortened URL
         const newLink = {
           originalUrl: url,
           shortUrl: data.link
         };
         const updatedLinks = [newLink, ...links];
         setLinks(updatedLinks);
-        // Persist links
+        
+        // LOCAL STORAGE: Persist links for next page visit
         localStorage.setItem('shortenedLinks', JSON.stringify(updatedLinks));
         setUrl('');
       } else {
-        // Handle bitly error gracefully, simulate for local dev if API key fails
+        // ERROR HANDLING: If API fails, use mock shortened URL for demonstration
         const mockShortUrl = `https://bit.ly/${Math.random().toString(36).substr(2, 6)}`;
         const newLink = {
           originalUrl: url,
@@ -60,8 +92,8 @@ const UrlShortener = () => {
         setUrl('');
       }
     } catch (err) {
-      console.error(err);
-      alert('Failed to shorten url.');
+      console.error('Error shortening URL:', err);
+      alert('Failed to shorten URL. Please try again.');
     } finally {
       setLoading(false);
     }

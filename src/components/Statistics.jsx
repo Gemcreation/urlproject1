@@ -1,3 +1,26 @@
+/**
+ * Statistics Component
+ * 
+ * Advanced statistics section showcasing key features/benefits.
+ * 
+ * Features:
+ * - Centered heading and description
+ * - Three feature cards with connecting line
+ * - Cards stack vertically on mobile with vertical design line
+ * - Cards display horizontally on desktop with horizontal design line
+ * - Each card has icon, title, and description
+ * 
+ * Responsive Behavior:
+ * - Mobile (< 768px): Vertical stack with vertical connecting line
+ * - Desktop (768px+): Three columns with horizontal connecting line
+ * - Cards are offset vertically on desktop for cascading effect
+ * 
+ * Cards Include:
+ * 1. Brand Recognition
+ * 2. Detailed Records
+ * 3. Fully Customizable
+ */
+
 import React from 'react';
 import StatisticCard from './StatisticCard';
 import brandIcon from '../assets/images/icon-brand-recognition.svg';

@@ -1,10 +1,27 @@
+/**
+ * Navbar Component
+ * 
+ * Responsive navigation bar that displays:
+ * - Desktop: Logo + Navigation links + Auth buttons
+ * - Mobile: Logo + Hamburger menu icon (opens mobile menu)
+ * 
+ * Features:
+ * - Responsive design using CSS media queries (768px breakpoint)
+ * - Mobile menu toggle functionality
+ * - Clean, semantic HTML structure
+ */
+
 import React, { useState } from 'react';
 import MobileMenu from './MobileMenu';
 import logo from '../assets/images/logo.svg';
 
 const Navbar = () => {
+  // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  /**
+   * Toggle mobile menu open/closed
+   */
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
