@@ -45,8 +45,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Hamburger Icon */}
-      <div className="navbar__hamburger" onClick={toggleMenu} aria-label="Toggle Menu">
+      {/* Mobile Hamburger/Close Icon */}
+      <div 
+        className={`navbar__hamburger ${isMenuOpen ? 'open' : ''}`} 
+        onClick={toggleMenu} 
+        aria-label="Toggle Menu"
+      >
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>

@@ -68,7 +68,7 @@ img {
   position: relative;
   
   @media (min-width: 768px) {
-    padding: 48px 0;
+    padding: 48px 24px;
     justify-content: flex-start;
   }
 }
@@ -85,12 +85,47 @@ img {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  z-index: 101;
   
   .bar {
     width: 24px;
     height: 3px;
     background-color: hsl(257, 7%, 63%);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 10px;
+    }
+
+    &:nth-child(3) {
+      top: 20px;
+    }
+  }
+
+  /* Hamburger to Close Animation */
+  &.open {
+    .bar {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
   }
 
   @media (min-width: 768px) {
