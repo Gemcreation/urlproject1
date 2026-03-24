@@ -25,17 +25,19 @@ import workingIllustration from '../assets/images/illustration-working.svg';
 const Hero = () => {
   return (
     <section className="hero">
-      <div className="hero__content">
-        <h1>
-          More than just
-          <br />
-          shorter links
-        </h1>
-        <p>
-          Build your brand's recognition and get detailed insights on how your
-          links are performing.
-        </p>
-        <button className="btn btn--get-started">Get Started</button>
+      <div className="hero-wrapper">
+        <div className="hero__content">
+          <h1>
+            More than just
+            <br />
+            shorter links
+          </h1>
+          <p>
+            Build your brand's recognition and get detailed insights on how your
+            links are performing.
+          </p>
+          <button className="btn btn--get-started">Get Started</button>
+        </div>
       </div>
       <div className="hero__image">
         <img src={workingIllustration} alt="Person working at a desk" />

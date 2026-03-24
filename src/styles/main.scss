@@ -152,9 +152,28 @@ img {
 
   a {
     color: hsl(257, 7%, 63%);
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: hsl(180, 66%, 49%);
+      transition: width 0.3s ease;
+    }
+
     &:hover {
-      color: hsl(255, 11%, 22%); /* Dark Color */
+      color: hsl(255, 11%, 22%);
+      transform: translateY(-1px);
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
@@ -168,14 +187,39 @@ img {
 
   .login-link {
     color: hsl(257, 7%, 63%);
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: hsl(180, 66%, 49%);
+      transition: width 0.3s ease;
+    }
+
     &:hover {
       color: hsl(255, 11%, 22%);
+      transform: translateY(-1px);
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 
   .btn--signup {
     padding: 10px 24px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
   }
 }
 
@@ -211,6 +255,30 @@ img {
     color: white;
     font-weight: 700;
     font-size: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: hsl(180, 66%, 49%);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: hsl(180, 66%, 49%);
+      transform: translateY(-2px);
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -233,12 +301,41 @@ img {
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: hsl(180, 66%, 49%);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: hsl(180, 66%, 49%);
+      transform: translateY(-2px);
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 
   .btn--signup-full {
     width: 100%;
     padding: 14px 0;
     font-size: 18px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
   }
 }
 
@@ -249,43 +346,29 @@ img {
 .hero {
   position: relative;
   width: 100%;
-  padding: 48px 24px 60px;
+  padding: 50px 0 65px;
   background-color: #fff;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  overflow: visible;
+  justify-content: flex-start;
+  gap: 20px;
+  min-height: 720px;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     position: relative;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 80px 24px 100px;
-    overflow: hidden;
-    max-width: 100%;
-    margin: 0 auto;
+    justify-content: center;
+    padding: 70px 0 78px;
+    min-height: 760px;
+    overflow: visible;
   }
 
-  /* Background circle for desktop */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -150px;
-    width: 800px;
-    height: 800px;
-    background-color: #f0f1f6;
-    border-radius: 50%;
-    z-index: 0;
-    transform: translateY(-50%);
-    display: none;
-
-    @media (min-width: 768px) {
-      display: block;
-    }
+  @media (min-width: 1024px) {
+    padding: 82px 0 96px;
+    min-height: 820px;
   }
 }
 
@@ -296,6 +379,11 @@ img {
   max-width: 520px;
   text-align: center;
   flex-shrink: 0;
+  padding: 0 24px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(2px);
 
   h1 {
     font-size: 42px;
@@ -306,11 +394,18 @@ img {
     letter-spacing: -1px;
 
     @media (min-width: 768px) {
+      font-size: 60px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+      text-align: left;
+    }
+
+    @media (min-width: 1024px) {
       font-size: 80px;
       line-height: 1.1;
       margin-bottom: 24px;
       letter-spacing: -2px;
-      text-align: left;
     }
   }
 
@@ -321,10 +416,17 @@ img {
     color: hsl(257, 7%, 63%);
 
     @media (min-width: 768px) {
+      font-size: 16px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+      text-align: left;
+      max-width: 450px;
+    }
+
+    @media (min-width: 1024px) {
       font-size: 18px;
       line-height: 1.7;
       margin-bottom: 40px;
-      text-align: left;
     }
   }
 
@@ -333,15 +435,20 @@ img {
     font-size: 18px;
 
     @media (min-width: 768px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1024px) {
       font-size: 20px;
     }
   }
 
   @media (min-width: 768px) {
-    width: 100%;
+    width: auto;
     max-width: 520px;
     text-align: left;
     flex-shrink: 0;
+    padding: 0;
   }
 }
 
@@ -354,31 +461,76 @@ img {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  padding: 0 24px;
 
   img {
     width: 100%;
     max-width: 560px;
+    height: auto;
     display: block;
     object-fit: contain;
+    object-position: center;
   }
 
   @media (min-width: 768px) {
     position: absolute;
     top: 50%;
-    right: 0;
-    width: 55%;
+    right: -30px;
+    width: 58%;
     max-width: none;
+    padding: 0 12px 0 0;
     justify-content: flex-end;
     align-items: center;
     transform: translateY(-50%);
-    padding-right: 40px;
+    flex-shrink: 0;
+    z-index: 1;
 
     img {
       width: 100%;
-      min-width: 480px;
-      max-width: 700px;
+      height: auto;
+      min-width: 420px;
+      max-width: 640px;
       object-fit: contain;
+      object-position: right center;
+      transform: translateX(5%);
+      box-shadow: 0 24px 42px rgba(0, 0, 0, 0.14);
+      border-radius: 18px;
     }
+  }
+
+  @media (min-width: 1024px) {
+    right: -40px;
+    width: 62%;
+    padding: 0 30px 0 0;
+
+    img {
+      min-width: 500px;
+      max-width: 760px;
+      transform: translateX(10%);
+    }
+  }
+}
+
+/* Hero Container wrapper for desktop alignment */
+.hero-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1110px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 48px;
+    margin-left: 0;
+    margin-right: auto;
+    gap: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 64px;
   }
 }
 
