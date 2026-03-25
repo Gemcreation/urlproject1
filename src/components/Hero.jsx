@@ -38,9 +38,9 @@ const Hero = () => {
           </p>
           <button className="btn btn--get-started">Get Started</button>
         </div>
-        <div className="hero__image">
-          <img src={workingIllustration} alt="Person working at a desk" />
-        </div>
+      </div>
+      <div className="hero__image">
+        <img src={workingIllustration} alt="Person working at a desk" />
       </div>
     </section>
   );
