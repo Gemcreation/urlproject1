@@ -1,28 +1,3 @@
-/**
- * Footer Component
- * 
- * Website footer with branding, navigation links, and social media.
- * 
- * Features:
- * - Logo on the left (white filtered)
- * - Three columns of navigation links:
- *   1. Features (Link Shortening, Branded Links, Analytics)
- *   2. Resources (Blog, Developers, Support)
- *   3. Company (About, Our Team, Careers, Contact)
- * - Social media icons (Facebook, Twitter, Pinterest, Instagram)
- * - Very dark background for contrast
- * 
- * Responsive Behavior:
- * - Mobile (< 768px): Centered stacked layout, single column
- * - Desktop (768px+): Row layout with logo left, links center, socials right
- * 
- * Styling:
- * - White text/elements on dark background
- * - Logo uses CSS filter for white color effect
- * - Hover effects on links (change to cyan) and social icons
- * - Smooth transitions for hover states
- */
-
 import React from 'react';
 import logo from '../assets/images/logo.svg';
 import faceBookIcon from '../assets/images/icon-facebook.svg';
@@ -35,7 +10,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container footer__content">
         <div className="footer__logo">
-          {/* Apply CSS filter to make logo white as required in design */}
+          {/* I dey Apply CSS filter to make logo white as required in design, nah sense life no suppose hard lolz */}
           <img src={logo} alt="Shortly Logo" className="logo-white" />
         </div>
         
@@ -73,6 +48,7 @@ const Footer = () => {
           <a href="#pinterest"><img src={pinterestIcon} alt="Pinterest" /></a>
           <a href="#instagram"><img src={instagramIcon} alt="Instagram" /></a>
         </div>
+        {/* note: the social iocns has hover effect */}
       </div>
     </footer>
   );

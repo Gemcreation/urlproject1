@@ -28,9 +28,8 @@ const Hero = () => {
       <div className="hero-wrapper">
         <div className="hero__content">
           <h1>
-            More than just
-            <br />
-            shorter links
+            More than just shorter links
+            {/* <br /> */}
           </h1>
           <p>
             Build your brand's recognition and get detailed insights on how your
@@ -40,7 +39,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="hero__image">
-        <img src={workingIllustration} alt="Person working at a desk" />
+        <img src={workingIllustration} alt="Person working on a desk" />
       </div>
     </section>
   );
