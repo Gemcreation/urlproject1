@@ -630,6 +630,7 @@ img {
   gap: 16px;
 }
 
+//style for the shoted links, the style that carries the api shorted links
 .link-item {
   background-color: white;
   border-radius: 8px;
@@ -697,9 +698,7 @@ img {
   }
 }
 
-/* =========================================================================
-   Statistics Section
-   ========================================================================= */
+/* Statistics Section */
 .statistics {
   text-align: center;
   margin-top: -30px;
@@ -786,6 +785,8 @@ img {
   &.card-2 {
     margin-top: 40px;
     padding-bottom: 50px;
+    //margin-bottom: 40px;
+    //margin-bottom: 40px;
     
     @media (min-width: 768px) {
       margin-top: 40px;
@@ -795,6 +796,7 @@ img {
 
   &.card-3 {
     margin-top: 80px;
+    //margin-bottom: 40px;
     padding-bottom: 60px;
     
     @media (min-width: 768px) {
@@ -840,11 +842,9 @@ img {
   line-height: 1.6;
 }
 
-/* =========================================================================
-   Boost Section
-   ========================================================================= */
+/* Boost Section */
 .boost {
-  background-color: hsl(257, 27%, 26%); /* Dark Purple */
+  background-color: hsl(257, 27%, 26%);
   background-image: url('../assets/images/bg-boost-mobile.svg');
   background-position: center;
   background-size: cover;
@@ -875,9 +875,7 @@ img {
 }
 
 
-/* =========================================================================
-   Footer Section
-   ========================================================================= */
+/* Footer Section */
 .footer {
   background-color: hsl(260, 8%, 14%); /* Very Dark Violet / Gray 950 */
   padding: 50px 0;
@@ -960,10 +958,28 @@ img {
   align-items: center;
 
   a {
-    transition: filter 0.3s;
-    &:hover {
-      /* HSL cyan equivalent with CSS filters */
-      filter: invert(56%) sepia(31%) saturate(3015%) hue-rotate(130deg) brightness(98%) contrast(92%);
+    transition: 0.3s ease;
+
+    img {
+      transition: 0.3s ease;
+      filter: none;
+    }
+
+    &:hover img {
+      filter: invert(62%) sepia(77%) saturate(1631%) hue-rotate(138deg) brightness(97%) contrast(93%);
     }
   }
+
+  // a {
+  //   fill: #000; /* default black */
+  //   transition: 0.3s ease;
+  //   //transition: filter 0.3s;
+  //   &:hover {
+  //     fill: hsl(180, 66%, 49%);
+  //     /* HSL cyan equivalent with CSS filters */
+  //     //filter: invert(62%) sepia(77%) saturate(1631%) hue-rotate(138deg) brightness(97%) contrast(93%);
+
+  //     //filter: invert(56%) sepia(31%) saturate(3015%) hue-rotate(130deg) brightness(98%) contrast(92%);
+  //   }
+  // }
 }
