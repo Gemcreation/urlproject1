@@ -48,7 +48,8 @@ const UrlShortener = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer apikey' // Replace with actual API key
+          'Authorization': 'Bearer fe9a6f43ca4a2cb3a16d07dc03d4f3a98248e7e2'
+          // 'Authorization': 'Bearer apikey' // Replace with actual API key
         },
         body: JSON.stringify({ long_url: url, domain: 'bit.ly' })
       });
