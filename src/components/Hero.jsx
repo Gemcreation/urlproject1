@@ -1,23 +1,6 @@
-/**
- * Hero Component
- * 
- * Landing page hero section with headline, description, and CTA button.
- * 
- * Features:
- * - Two-column layout on desktop (text left, image right)
- * - Single column layout on mobile (image top, text bottom, centered)
- * - Large, attention-grabbing headline text
- * - Descriptive paragraph about the service
- * - "Get Started" call-to-action button
- * 
- * Responsive Behavior:
- * - Mobile (< 768px): Image appears first, centered text, column layout
- * - Desktop (768px+): Image and text side-by-side, text left-aligned
- * 
- * Image:
- * - Uses hero illustration from assets (illustration-working.svg)
- * - Responsive sizing with percentage scaling
- */
+/* Hero Component */
+//what to do
+// text content and image content. Tetx at the elft while image at the right.
 
 import React from 'react';
 import workingIllustration from '../assets/images/illustration-working.svg';

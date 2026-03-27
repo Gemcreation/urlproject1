@@ -1,18 +1,17 @@
-/**
- * LinkItem Component
- * 
- * Displays individual shortened URL result with original and shortened URLs.
+//major thing i need to work on inside this component
+/* LinkItem Component, Displays individual shortened URL result with original and shortened URLs.
  * 
  * Features:
- * - Copy shortened URL to clipboard functionality
- * - Dynamic button state (Copy -> Copied! -> Copy after 3s)
- * - Clickable shortened link that opens in new tab
- * - Responsive layout (stacked on mobile, horizontal on desktop)
+ *  Copy shortened URL to clipboard functionality
+ *  Dynamic button state (Copy -> Copied! -> Copy after some secs maybe 3s)
+ *  Clickable shortened link that opens in new tab
+ *  Responsive layout (stacked on mobile, horizontal on desktop)
  * 
- * Props:
- * - originalUrl: The original long URL
- * - shortUrl: The shortened URL from Bitly
+ * I also need to make use of Props:
+ *  originalUrl: The original long URL
+ *  shortUrl: The shortened URL from Bitly
  */
+//just omoh e o easy ooo
 
 import React, { useState } from 'react';
 
@@ -24,6 +23,7 @@ const LinkItem = ({ originalUrl, shortUrl }) => {
    * Handle copy to clipboard functionality
    * Uses Navigator Clipboard API for modern browsers
    * Temporarily changes button state for user feedback
+   * study some from chatgpt.
    */
   const handleCopy = () => {
     navigator.clipboard.writeText(shortUrl);

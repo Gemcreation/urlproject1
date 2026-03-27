@@ -1,25 +1,5 @@
-/**
- * UrlShortener Component
- * 
- * Main URL shortening form and link list display.
- * 
- * Features:
- * - Form validation (must have URL)
- * - API integration with Bitly for URL shortening
- * - Loading state management
- * - Error handling and user feedback
- * - Links appear only during current session (cleared on page refresh)
- * 
- * State Management:
- * - url: Current input URL value
- * - links: Array of shortened links (session only, not persisted)
- * - error: Boolean to show/hide error message
- * - loading: Boolean to show loading state during API call
- * 
- * Note: Links are NOT persisted to localStorage
- * They will be cleared when the page is refreshed
- */
-
+/*UrlShortener Component, Main URL shortening form and link list display*/
+//handling api for bitly api whennthe clean api doesnt works well.
 import React, { useState } from 'react';
 import LinkItem from './LinkItem';
 
@@ -41,8 +21,9 @@ const UrlShortener = () => {
     setLoading(true);
 
     try {
+      //Below is process to i dey follow from the api documentation.
       // API INTEGRATION: Call Bitly API to shorten URL
-      // Using Bitly v4 API endpoint: https://api-ssl.bitly.com/v4/shorten
+      // Using Bitly v4 API endpoint: https://api-ssl.bitly.com/v4/shorten, this given in their api documentation 
       // Replace 'apikey' with actual Bitly API token for production
       const response = await fetch('https://api-ssl.bitly.com/v4/shorten', {
         method: 'POST',
@@ -120,3 +101,5 @@ const UrlShortener = () => {
 };
 
 export default UrlShortener;
+
+//gem creation

@@ -1,15 +1,5 @@
-/**
- * Navbar Component
- * 
- * Responsive navigation bar that displays:
- * - Desktop: Logo + Navigation links + Auth buttons
- * - Mobile: Logo + Hamburger menu icon (opens mobile menu)
- * 
- * Features:
- * - Responsive design using CSS media queries (768px breakpoint)
- * - Mobile menu toggle functionality
- * - Clean, semantic HTML structure
- */
+/* room Navbar Component*/
+//1st project out of two
 
 import React, { useState } from 'react';
 import MobileMenu from './MobileMenu';
