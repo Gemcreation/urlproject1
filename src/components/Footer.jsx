@@ -1,3 +1,5 @@
+//my footer, just normar footer things nothing special.
+
 import React from 'react';
 import logo from '../assets/images/logo.svg';
 import faceBookIcon from '../assets/images/icon-facebook.svg';
