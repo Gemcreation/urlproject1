@@ -21,7 +21,7 @@ const UrlShortener = () => {
     setLoading(true);
 
     try {
-      //Below is process to i dey follow from the api documentation.
+      //Below is process wey i dey follow from the api documentation.
       // API INTEGRATION: Call Bitly API to shorten URL
       // Using Bitly v4 API endpoint: https://api-ssl.bitly.com/v4/shorten, this given in their api documentation 
       // Replace 'apikey' with actual Bitly API token for production
@@ -30,7 +30,7 @@ const UrlShortener = () => {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer fe9a6f43ca4a2cb3a16d07dc03d4f3a98248e7e2'
-          // 'Authorization': 'Bearer apikey' // Replace with actual API key
+          // 'Authorization': 'Bearer apikey' // i don replace am with actual API key
         },
         body: JSON.stringify({ long_url: url, domain: 'bit.ly' })
       });
@@ -38,7 +38,7 @@ const UrlShortener = () => {
       const data = await response.json();
       
       if (response.ok) {
-        // SUCCESS: Create new link object with original and shortened URL
+        // SUCCESS: e go Create new link object with original and shortened URL
         const newLink = {
           originalUrl: url,
           shortUrl: data.link
